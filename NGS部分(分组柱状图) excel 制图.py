@@ -3,7 +3,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # 讀取 Excel
-df = pd.read_excel("/Users/jasontingting/Desktop/K3 部分結果//論文用 コロニー PCR （K3部分）.xlsx", sheet_name='PCR graph')
+df = pd.read_excel(r"C:\Users\suzuki\PycharmProjects\NGS\K3用 excel\論文用 コロニー PCR （K3部分）.xlsx", sheet_name='PCR graph')
 
 # 只選 group == 1 的資料
 selected_data = df[df['group'] == 1].copy()
@@ -11,7 +11,7 @@ selected_data = df[df['group'] == 1].copy()
 # 資料轉長格式
 df_melted = selected_data.melt(
     id_vars=["Sample", "group"],
-    value_vars=["未検出", "鎖長減少", "鎖長増加", "変化なし"],
+    value_vars=[ "変化なし","未検出", "鎖長減少", "鎖長増加"],
     var_name="Type",
     value_name="Count"
 )

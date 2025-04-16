@@ -10,7 +10,6 @@ print(df.columns)
 
 # 选择指定的数据行（第2到第47行）
 selected_data = df[df['group 1'] == 1].copy()
-
 # 创建一个包含需要处理的列名的列表
 columns_to_plot = ['All mut/Total BC']  # 根据需要修改列名
 
