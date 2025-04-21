@@ -29,7 +29,7 @@ plot_group <- function(group_id) {
 
 # 畫圖：例如 group 1
 plot_group(1)
-ggsave("group1_plot.png", plot_group(1), width = 8, height = 6, dpi = 300)
+ggsave("../group1_plot.png", plot_group(1), width = 8, height = 6, dpi = 300)
 
 # 如果你想要儲存：
 #ggsave("group1_stacked_bar.png", plot = plot_group(1), width = 6, height = 4)

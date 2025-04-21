@@ -9,9 +9,10 @@ file_path = "/Users/jasontingting/Desktop/K3 部分結果/variant_summary_supF.x
 df = pd.read_excel(file_path, sheet_name='Sel')
 
 # 根据 'group 2' 筛选数据
-selected_data = df[df['group'] == 3].copy()
+selected_data = df[df['group2'].astype(str).str.contains('1')].copy()
+print(df.columns.tolist())
 # 只选择需要的列
-columns_to_use = ['Sample4','Del_mutant frequency_0.4_Average','Ins_mutant frequency_0.4_Average','SNV_mutant frequency_0.4_Average']
+columns_to_use = ['Sample4','Del_mutant frequency_0.6_Average','Ins_mutant frequency_0.6_Average','SNV_mutant frequency_0.6_Average']
 filtered_data = selected_data[columns_to_use].copy()
 
 # 去除百分号并转换为数值
@@ -64,7 +65,7 @@ plt.yticks(rotation=0, fontsize=14)
 plt.ylabel('mutation frequency', fontsize=14, fontweight='bold')
 plt.xlabel('')
 
-plt.ylim(0,0.01)
+plt.ylim(0,0.002)
 
 
 
@@ -77,7 +78,7 @@ if not os.path.exists(output_folder):
     os.makedirs(output_folder)  # 如果目标文件夹不存在，创建它
 
 # 保存为高分辨率 PNG 文件
-save_path = os.path.join(output_folder, f"AF(0.4)_E1(Sel)_ま.png")
+save_path = os.path.join(output_folder, f"AF(0.6)_E1(Sel)_ま.png")
 plt.savefig(save_path, dpi=300)
 
 # 显示图像
